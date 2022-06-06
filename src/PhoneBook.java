@@ -21,7 +21,5 @@ public class PhoneBook {
     public static Contact createContact(String name, String phone) {
         return new Contact(name, phone);
     }
-
-
 }
 

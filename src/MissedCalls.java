@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class MissedCalls {
 
-    private static final DateTimeFormatter DEFAULT_TIME_FORMAT = DateTimeFormatter.ofPattern("HH.mm.ss (dd.MM.yyyy)");
+    private static final DateTimeFormatter DEFAULT_TIME_FORMAT = DateTimeFormatter.ofPattern("HH.mm (dd.MM.yyyy)");
     private final Map<LocalDateTime, String> storage = new TreeMap<>();
     private final PhoneBook phoneBook;
 
