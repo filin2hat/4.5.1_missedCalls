@@ -1,9 +1,12 @@
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class MissedCalls {
 
+    private static final DateTimeFormatter DEFAULT_TIME_FORMAT = DateTimeFormatter.ofPattern("HH.mm.ss (dd.MM.yyyy)");
     private final Map<LocalDateTime, String> storage = new TreeMap<>();
     private final PhoneBook phoneBook;
 
@@ -21,7 +24,7 @@ public class MissedCalls {
         for (Map.Entry<LocalDateTime, String> entry : storage.entrySet()) {
             final String phoneNumber = entry.getValue();
             final Contact contactByPhone = phoneBook.findContactByPhone(phoneNumber);
-            sb.append(entry.getKey());
+            sb.append(DEFAULT_TIME_FORMAT.format(entry.getKey()));
             sb.append(" - ");
             sb.append(contactByPhone == null ? phoneNumber : contactByPhone.getName());
             sb.append("\n");
